@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //类 具有相同属性方法的对象的集合
+    function Cat(name,age) {
+        this.name = name;
+        this.age = age;
+//        this.eat = function () {// new Function
+//            console.log(this.name+"is eating");
+//        }
+    }
+
+    Cat.prototype.eat = function () {//推荐方法写在原型中
+        console.log(this.name + "is eating");
+    }
+//    Cat.prototype.color = "white";
+//    Cat.prototype.father ={//属性写在原型中会出问题
+//        name:Tom
+//    }
+    var cat1 = new Cat("asd",11);
+    var cat2 = new Cat("sda",2);
+//    console.log(cat1.name);
+//    console.log(cat2.name);
+//    cat2.eat();
+//    cat2.color = "black";
+//    console.log(cat2.color);
+//    console.log(cat1.father);
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1260px;
+            margin: 0 auto;
+        }
+        .header{
+            border-radius: 5px;
+            height: 100px;
+            /*width: 100%;*/
+            background: #aaaaaa;
+            margin-top:20px ;
+            text-align: center;
+            line-height: 100px;
+        }
+        #img-box{
+            height: 600px;
+            width: 100%;
+            background: url("img/01.jpg") 0 0 no-repeat;
+            background-size:cover ;
+            margin-top: 20px;
+        }
+        #content{
+            height: 100px;
+            margin-top: 20px;
+            position: relative;
+        }
+        #left{
+            position: relative;
+            top: 0;
+            left: 0;
+            background: #ff0000;
+            width: 600px;
+            height: 100px;
+        }
+        #right{
+            position: relative;
+            top: -100px;
+            right: -660px;
+            background: #ffff00;
+            width: 600px;
+            height: 100px;
+        }
+        .footer{
+            border-radius: 5px;
+            height: 50px;
+            width: 100%;
+            background: #aaaaaa;
+            color: #000000;
+            margin:40px 0;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        @media screen and (max-width: 960px){
+            #container{
+                width: 100%;
+            }
+            #img-box{
+                background-image:url("img/01_s_2x.jpg") ;
+            }
+            #left{
+                width: 68%;
+            }
+            #right{
+                width: 30%;
+            }
+        }
+        @media screen and (max-width:480px){
+            #img-box{
+                background-image:url("img/01_s.jpg") ;
+            }
+            #left,#right{
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div1">
+            <div class="header">页头</div>
+            <div class="header">标题</div>
+        </div>
+        <div id="img-box">
+
+        </div>
+        <div id="content">
+            <div id="left">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.
+                </p>
+            </div>
+            <div id="right">
+                <p>
+                    Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus. Suspendisse vestibulum est eget dolor lobortis.
+                </p>
+            </div>
+        </div>
+        <div class="footer">页脚</div>
+    </div>
+</body>
+</html>

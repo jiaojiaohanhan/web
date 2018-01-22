@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <div id="div1">
+        111
+    </div>
+    <a href="#" id="a1" style="background: blue;color: white">abc</a>
+    <ul id="ul1">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+    <ul id="ul2">
+        <li>111</li>
+        <li class="aa">222</li>
+        <li>333</li>
+        <li class="aa bb">444</li>
+    </ul>
+    <input type="checkbox" id="checkbox1" name="checkbox1" value="11"><label for="checkbox1">11</label>
+    <input type="checkbox" id="checkbox2" name="checkbox2" value="22"><label for="checkbox2">22</label>
+    <input type="checkbox" id="checkbox3" name="checkbox3" value="33"><label for="checkbox3">33</label>
+    <br/>
+    <input type="radio" id="radio1" name="sex" value="1"><label for="radio1">男</label>
+    <input type="radio" id="radio2" name="sex" value="0"><label for="radio2">女</label>
+<script>
+
+//    var oDiv = document.getElementById("div1");//返回一个dom对象 如果没有返回NULL
+//    var oUl1 = document.getElementById("ul1");
+//
+//    console.log(oDiv);
+//    oDiv.onclick = function () {
+//        oDiv.style.background ="red";
+//        oDiv.style.color = "white";
+//    }
+//    console.log(oUl1)
+//    oUl1.onclick = function () {
+//        oUl1.style.background = "blue";
+//        oUl1.style.color = "white";
+//    }
+
+//    var oUl2 = document.getElementById("ul2");
+//    var aLi = oUl2.getElementsByTagName("li");//返回节点列表 类数组 如果没有返回空数组
+//    console.log(aLi);
+//
+//    for (var i=0;i<aLi.length;i++){
+//        aLi[i].innerHTML = Math.random();
+//    }
+//
+//    var aa = document.getElementById("a1");
+//    aa.onclick = function (){
+//        aa.style.background = "red";
+//        aa.innerHTML = "Hello";
+//    }
+//
+//    var aLi2 = oUl2.getElementsByClassName("ab");
+//    for (var j=0;j<aLi2.length;j++){
+//        aLi2[j].style.background = "blue";
+//    }
+
+//    function getEleByClassName(clsName,context) {
+//        var result = [];
+//
+////        if(context){ //如果传参数，context值是传的对象，那么从context下取
+////            var parentEle = context;
+////        }else{ //如果没传参，context值是undefined
+////            var parentEle = document;
+////        }
+////        var allEle = parentEle.getElementsByTagName("*");
+//
+//        var parentEle = context || document;
+//        var allEle = parentEle.getElementsByTagName("*");
+//        for (var i=0;i<allEle.length;i++){
+//            var arr= allEle[i].className.split(" ");//"aa bb" ==> ["aa","bb"];["aabb"]
+//            for(var j=0;j<arr.length;j++) {
+//                if (arr[j] == clsName){
+//                    result.push(allEle[i]);
+//                }
+//            }
+//        }
+//        return result;
+//    }
+////    var oUl2 = document.getElementById("ul2");
+//    var aA = getEleByClassName("aa",ul2);// var aA = getEleByClassName("aa",oUl2)
+//    for (var k=0;k<aA.length;k++){
+//        aA[k].style.background = "red";
+//    }
+//    aLi[0].style.background = "red";
+
+    var aCheckBox = document.getElementsByName("checkbox1");
+    function ss() {
+        for(var i=0; i<aCheckbox.length; i++){
+            aCheckbox[i].className = 'bb';
+        }
+        console.log(aCheckbox[1].aa);
+    }
+    ss();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<book>
+    <name>XML</name>
+    <number>ISBN-6655</number>
+    <writer>jiao</writer>
+    <price>100</price>
+</book>
+

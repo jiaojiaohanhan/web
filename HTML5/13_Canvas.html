@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+        }
+        #cvs{
+            background: #ffffff;
+            margin: 0 350px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cvs" width="600" height="600">
+
+    </canvas>
+<script>
+    var oCvs = document.querySelector("#cvs");
+    var oCtx = oCvs.getContext("2d");
+
+    oCtx.beginPath();
+    oCtx.moveTo(100,100);
+    oCtx.lineTo(300,300);
+    oCtx.lineTo(100,300);
+//    oCtx.lineTo(100,100);
+    oCtx.closePath();
+    oCtx.lineWidth = 10;
+    oCtx.strokeStyle = "red";
+    oCtx.stroke();
+//    oCtx.fillStyle="#FF0000";
+//    oCtx.fillRect(0,0,150,75);
+
+//    oCtx.beginPath();
+//    oCtx.moveTo(200,100);
+//    oCtx.lineTo(200,150);
+//    oCtx.lineWidth = 5;
+//    oCtx.strokeStyle = "blue";
+//    oCtx.stroke();
+
+    oCtx.beginPath();
+//    oCtx.moveTo(200,100);
+    oCtx.arc(200,150,100,0,2*Math.PI,true);
+    oCtx.lineWidth = 5;
+    oCtx.strokeStyle = "blue";
+//    oCtx.fillStyle = "blue";
+//    oCtx.fill();
+    oCtx.stroke();
+
+//    oCtx.beginPath();
+//    var oGrd = oCtx.createLinearGradient(80,80,150,75);
+//    oGrd.addColorStop(0,"#ff0000");
+//    oGrd.addColorStop(0.3,"#00ff00");
+//    oGrd.addColorStop(0.6,"#0000ff");
+//    oGrd.addColorStop(1,"#00ffff");
+//    oCtx.fillStyle = oGrd;
+//    oCtx.fillRect(80,80,150,75);
+
+    var oImg = new Image();
+
+    oImg.onload = function(){
+        oCtx.drawImage(oImg,0,0,400,400);
+    }
+    oImg.src= "";
+</script>
+</body>
+</html>

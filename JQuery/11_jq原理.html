@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script>-->
+        <!--$(function () {-->
+            <!---->
+        <!--})-->
+    <!--</script>-->
+</head>
+<body>
+    <div id="div1">asdsa</div>
+    <script>
+//        $("#div1");
+//        $(".aa");
+        function $(selector,context) {
+            return new Jquery(selector,context);
+        };
+        function Jquery(selector,context) {
+            this.result = [];
+            if(typeof selector =="string"){
+                if (selector.charAt(0) == "#"){
+                    this.result.push(document.getElementById(selector.substring(1)));
+                }else if(selector.charAt(0)=="."){
+                    this.result = getEleByClassName(selector.substring(1),context);
+                }
+            }else if(typeof selector == "function"){
+                addEvent(document,"DOMContentLoaded",selector,false);
+            }
+        };
+        Jquery.prototype.on = function (type,fn) {
+            for(var i=0;i<this.result.length;i++){
+                addEvent(this.result[i],type,fn,false);
+            }
+            return this;
+        };
+        Jquery.prototype.css = function (str1,str2) {
+            for(var i=0;i<this.result.length;i++){
+                if(typeof str1 == "string" && typeof str2 == "string" ){
+                    this.result[i].style[str1] = str2;
+                }else if (typeof str1 == "object" && typeof str2 == "undefined"){
+                    for (key in str1){
+                        this.result[i].style[key] = str1[key];
+                    }
+                }
+            }
+            return this;
+        };
+
+        function getEleByClassName(clsName,context) {
+            var result = [];
+
+        //       if(context){ //如果传参数，context值是传的对象，那么从context下取
+        //           var parentEle = context;
+        //       }else{ //如果没传参，context值是undefined
+        //           var parentEle = document;
+        //       }
+        //       var allEle = parentEle.getElementsByTagName("*");
+
+            var parentEle = context || document;
+            var allEle = parentEle.getElementsByTagName("*");
+            for (var i=0;i<allEle.length;i++){
+                var arr= allEle[i].className.split(" ");//"aa bb" ==> ["aa","bb"];["aabb"]
+                for(var j=0;j<arr.length;j++) {
+                    if (arr[j] == clsName){
+                        result.push(allEle[i]);
+                    }
+                }
+            }
+            return result;
+        }
+        function addEvent(elem,type,fn,flag) {
+            if(elem.addEventListener){//标准浏览器
+                elem.addEventListener(type,fn,flag);
+            }else{//IE浏览器
+                elem.attachEvent("on"+type,function () {
+                    fn.call(elem);
+                });//绑定事件 this指向window
+            }
+        }
+
+        $("#div1").css("background","red").on("click",function () {
+            console.log(1212);
+        });
+    </script>
+</body>
+</html>

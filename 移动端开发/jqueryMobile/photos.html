@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #content{
+            overflow: hidden;
+            width:400px;
+            /*width: 100%;*/
+            margin: 20px auto;
+        }
+        #content div{
+            background-size:cover ;
+            float: left;
+            height: 100px;
+            width: 25%;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<!--<script src="jquery.mobile-1.4.5.min.js"></script>-->
+<script>
+    var count = 0;
+    for (var i=1;i<7;i++){
+        for (var j=1;j<5;j++){
+            count++;
+            $("#content").append("<div></div>");
+            $("#content div:nth-child("+count+")").css("background","url(images/img/thumbs/"+count+".jpg) 0 0 no-repeat");
+        }
+    }
+</script>
+</body>
+</html>

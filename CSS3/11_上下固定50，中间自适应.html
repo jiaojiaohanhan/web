@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+        }
+        #a{
+            height: 100%;
+            /*display:-webkit-box;*/
+            display: flex;
+            /*-webkit-box-orient:vertical;*/
+            flex-direction:column;
+        }
+        #top{
+            height: 50px;
+            background: #000000;
+        }
+        #center{
+            background: #00c0a5;
+            /*-webkit-box-flex: 1;*/
+            -webkit-flex-grow: 1;
+        }
+        #center2{
+            background: #00ff00;
+            /*-webkit-box-flex: 2;*/
+            -webkit-flex-grow: 2;
+        }
+        #bottom{
+            height: 50px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="a">
+        <div id="top"></div>
+        <div id="center"></div>
+        <div id="center2"></div>
+        <div id="bottom"></div>
+    </div>
+</body>
+</html>

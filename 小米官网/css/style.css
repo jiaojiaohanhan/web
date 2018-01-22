@@ -1,0 +1,256 @@
+/*css reset*/
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    border: 0;
+}
+.wrapper{
+    width: 1226px;
+    margin: 0 auto;
+}
+/*公共样式*/
+/*banner 开始*/
+.banner{
+    height: 110px;
+    background: url("../img/banner.jpg") no-repeat 50% 50%;
+}
+.banner a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/*banner 结束*/
+/*nav 开始*/
+.nav{
+    height: 40px;
+    background: #333333;
+}
+.main-menu{
+    overflow: hidden;
+    float: left;
+}
+.user-info{
+    float: right;
+}
+.nav li{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.nav a{
+    color:#b0b0b0;
+    font-size:12px;
+}
+.nav a:hover{
+    color: #ffffff;
+}
+.nav .sep{
+    margin: 0 6px;
+    color: #424242;
+}
+.cart{
+    width:120px;
+    position: relative;
+    text-align: center;
+}
+.cart a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #424242;
+}
+.cart:hover .cart-box{
+    display: block;
+    animation: show 0.2s ease-in forwards;
+}
+.cart-box{
+    width: 320px;
+    height: 0px;
+    background: #ffffff;
+    padding-top: 0px;
+    position: absolute;
+    right: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 1000;
+}
+.cart-box span{
+    display: block;
+    margin: 30px auto;
+    font-size: 10px;
+}
+@keyframes show {
+    100%{
+        height: 100px;
+    }
+}
+/*nav 结束*/
+/*header 开始*/
+.header{
+    height: 100px;
+    background: white;
+    position:relative;
+}
+.header-logo{
+    width: 55px;
+    height: 55px;
+    margin-top:22px;
+    background: url("../img/mi-logo.png") center center no-repeat #ff6700;
+    float: left;
+}
+.header-menu{
+    float: left;
+    margin-left: 185px;
+    height: 100px;
+    line-height: 100px;
+}
+.header-menu .menu-item{
+    float: left;
+    padding: 0 10px;
+}
+.header-menu .menu-item a{
+    color: rgb(51,51,51);
+}
+.header-menu .menu-item a:hover{
+    color: #ff6700;
+}
+.header-menu .menu-item:hover .sub-menu{
+    display: block;
+    animation: show2 0.5s ease-in forwards;
+}
+.sub-menu{
+    width: 100%;
+    height: 0px;
+    background: #ffffff;
+    padding:0 0;
+    position: absolute;
+    left: 0px;
+    box-shadow: 0 1px 4px 0px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 500;
+}
+.sub-menu ul{
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+}
+.sub-menu li{
+    width: 204px;
+    height: 201px;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+.flags{
+    height: 17px;
+    line-height: 17px;
+    margin-bottom: 12px;
+}
+.flags span{
+    border: 1px solid #ff6700;
+    color: #ff6700;
+    font-size: 12px;
+    padding: 1px 14px;
+}
+.p-img{
+    height: 110px;
+    display: block;
+    margin-bottom: 12px;
+}
+.p-title{
+    color: #333;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+}
+.p-price{
+    height: 20px;
+    line-height: 20px;
+    color: #ff6700;
+    font-size: 12px;
+}
+.p-line{
+    width: 1px;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    top: 36px;
+    background: #e0e0e0;
+}
+.search{
+    width: 296px;
+    height: 50px;
+    /*background: #ffffff;*/
+    margin: 20px 0;
+    float: right;
+    position: relative;
+}
+.search-txt{
+    width: 220px;
+    height: 48px;
+    outline: none;
+    border: 1px solid #b0b0b0;
+    padding:0 10px;
+    float: left;
+    position: relative;
+}
+.search-txt:hover{
+    border-color: #ff6700;
+}
+.search-txt:hover+input{
+    border-color: #ff6700;
+}
+.search-btn{
+    width: 54px;
+    height: 50px;
+    /*background: #ffffff;*/
+    border: 1px solid #b0b0b0;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    z-index: 501;
+    outline: none;
+    background: transparent;
+}
+.search-btn:hover{
+    border-color: #ff6700;
+}
+.search-btn:hover+i{
+    color: #ffffff;
+    background: #ff6700;
+    border-color:#ff6700;
+}
+.search-span{
+    display: block;
+    position: absolute;
+    right: 20%;
+    margin: 15px;
+    z-index: 502;
+    height: 18px;
+    line-height: 18px;
+    background: #cccccc;
+}
+.search-span a{
+    color: #4f4e56;
+    font-size: small;
+}
+.search-span:hover{
+    background: #ff6700;
+}
+.search-span:hover a{
+    color: #ffffff;
+}
+@keyframes show2 {
+    100%{
+        height: 220px;
+    }
+}
+/*header 结束*/

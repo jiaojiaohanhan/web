@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="随机彩票">
+    <!--<button>随机彩票</button> -->
+    <div id="div1"></div>
+<script>
+    var oI = document.getElementsByTagName("input")[0];
+    var oD = document.getElementById("div1");
+    var aM = [];
+    var obj = {};
+    oI.onclick = function () {
+//        oD.innerHTML = parseInt(Math.random()*100)+","+parseInt(Math.random()*100)+","+parseInt(Math.random()*100)+","+parseInt(Math.random()*100)+","+parseInt(Math.random()*100)+","+parseInt(Math.random()*100)+","+parseInt(Math.random()*100);
+
+//        for(var i=0;i<7;i++){
+//            aM.push(parseInt(Math.random()*100));
+//        }
+//        oD.innerHTML = aM;
+
+        var arr = [];
+        var randNum = Math.random();//hash值
+        for (var i=0;i<7;i++){
+            var num = parseInt(Math.random()*35+1);//1-35
+            arr.push(num);
+        }
+        history.pushState(arr,"");
+        oD.innerHTML = arr;
+//        obj[randNum] = arr;
+//        location.hash = randNum;
+    }
+    window.onpopstate = function (e) {
+        oD.innerHTML = e.state;
+    }
+//    window.onhashchange = function () {
+//        var hash = location.hash.substring(1);
+//        if (hash){
+//           oD.innerHTML = obj[hash];
+//        }else {
+//            oD.innerHTML = "";
+//        }
+//    }
+</script>
+</body>
+</html>

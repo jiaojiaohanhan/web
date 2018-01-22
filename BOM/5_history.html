@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="6_aa.html">aa页面</a>
+    <button id="btn1">返回上一页</button>
+    <button id="btn2">返回下一页</button>
+<script>
+    var oBt1 = document.getElementById("btn1");
+    var oBt2 = document.getElementById("btn2");
+    oBt1.onclick = function () {
+        history.forward()
+    }
+    oBt2.onclick = function () {
+        history.back()
+    }
+</script>
+</body>
+</html>

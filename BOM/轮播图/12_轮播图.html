@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+        }
+        #img-box{
+            padding-left:40px;
+        }
+        #img-box img{
+            display: none;
+        }
+        #img-box img.selected{
+            display: block;
+        }
+        #tab{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            list-style: none;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #tab li.selected{
+            background: orange;
+        }
+        #prev-btn,#next-btn{
+            position: absolute;
+            bottom: 10px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: #000000;
+            color: #ffffff;
+        }
+        #prev-btn{
+            left: 10px;
+        }
+        #prev-btn.selected{
+            background: orange;
+        }
+        #next-btn{
+            left: 35px;
+        }
+        #next-btn.selected{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <img class="selected" src="pms.3053874.jpg" alt="">
+            <img src="pms.28498495.jpg" alt="">
+            <img src="pms.46368911.jpg" alt="">
+            <img src="pms.54329452.jpg" alt="">
+            <img src="pms.70932288.png" alt="">
+        </div>
+        <ul id="tab">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span id="prev-btn">&lt;</span>
+        <span id="next-btn">&gt;</span>
+    </div>
+<script>
+    var oContainer = document.getElementById("container");
+    var oTab = document.getElementById("tab");
+    var aLi = oTab.getElementsByTagName("li");
+    var oImgBox = document.getElementById("img-box");
+    var aImg = oImgBox.getElementsByTagName("img");
+    var oSp1 = document.getElementById("prev-btn");
+    var oSp2 = document.getElementById("next-btn");
+    var iNow = 0;
+    var timer;
+    for (var i=0;i<aLi.length;i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            iNow = this.index;
+            //changImg(this.index)
+            for (var j = 0; j < aLi.length; j++) {
+                aLi[j].className = "";
+                aImg[j].className = "";
+            }
+            this.className = "selected";
+            aImg[this.index].className = "selected";
+        }
+//        oSp1.onmouseover = function () {
+//            oSp1.className = "selected";
+//        }
+//        oSp2.onmouseover = function () {
+//            oSp2.onmouseover = "selected";
+//        }
+    }
+    oSp1.onclick = function () {
+        iNow--;
+        console.log(iNow);
+        if(iNow < 0){
+            iNow = aImg.length-1;
+        }
+        for (var j=0;j<aLi.length;j++){
+            aLi[j].className = "";
+            aImg[j].className = "";
+        }
+        aLi[iNow].className = "selected";
+        aImg[iNow].className = "selected";
+    }
+    oSp2.onclick = function () {
+        iNow++;
+        console.log(iNow);
+        if (iNow >= aImg.length) {
+            iNow = 0;
+        }
+        for (var j = 0; j < aLi.length; j++) {
+            aLi[j].className = "";
+            aImg[j].className = "";
+        }
+        aLi[iNow].className = "selected";
+        aImg[iNow].className = "selected";
+    }
+
+    run();
+    oContainer.onmouseover = function () {
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function () {
+        run();
+    };
+    function run() {
+        timer = setInterval(function () {
+            oSp2.onclick();
+        },1000);
+    };
+
+//        错误的代码
+//        var num = 0;
+//        var timer = setInterval(function () {
+//            aImg[num].className = "selected";
+//            num++;
+//            if(num>=aImg.length){
+//                num = 0;
+//            }
+//        },500)
+
+//        function changImg(idx){//在函数中this指向window
+//            for(var j=0;j<aLi.length;j++){
+//                aLi[j].className = "";
+//                aImg[j].className = "";
+//            }
+//            aLi[idx].className = "selected";
+//            //this,className = "selected";
+//            aImg[idx].className = "selected";
+//        }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            margin-left: 300px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border:1px solid #000000;
+            display: -webkit-box;
+        }
+        #div1 div
+        {
+            transform-origin: 0% 100%;
+        }
+        #shizhen{
+            position: absolute;
+            left: 496px;
+            top:116px;
+            height: 80px;
+            width: 10px;
+            background: #000000;
+        }
+        #fenzhen{
+            position: absolute;
+            left: 498px;
+            top:78px;
+            height: 120px;
+            width: 5px;
+            background: #00ff00;
+        }
+        #miaozhen{
+            position: absolute;
+            left: 500px;
+            top:50px;
+            height: 150px;
+            width: 1px;
+            background: #ff0000;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            width: 2px;
+            height: 4px;
+            background: #000000;
+            position: absolute;
+            left: 36.6%;
+            margin-left: -1px;
+            top:0;
+            -webkit-transform-origin:1px 200px;
+        }
+        li:nth-child(5n+1){
+            height: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="shizhen"></div>
+        <div id="fenzhen"></div>
+        <div id="miaozhen"></div>
+        <ul></ul>
+    </div>
+</body>
+<script>
+    var sz = document.getElementById("shizhen");
+    var fz = document.getElementById("fenzhen");
+    var mz = document.getElementById("miaozhen");
+    var oUl = document.getElementsByTagName("ul")[0];
+    var sLi = "";
+    var os=0;
+    var om=0;
+    var oh=0;
+    var num=5;
+    var timer1 = setInterval(function () {
+        os+=6;
+        if(os==360){
+            os=0;
+        }
+        om+=0.1;
+        if(om==360){
+            om=0;
+        }
+        mz.style.transform = "rotate("+os+"deg)";
+        fz.style.transform = "rotate("+om+"deg)";
+//        if(os==360)
+//        {
+//            os=0;
+//            om+=6;
+//            fz.style.transform = "rotate("+om+"deg)";
+//            if(om==360)
+//            {
+//                sz.style.transform = "rotate("+oh+"deg)";
+//            }
+//        }
+    },1000);
+    var timer2 = setInterval(function () {
+        oh+=1;
+        if(oh==360){
+            oh=0;
+        }
+        sz.style.transform = "rotate("+oh+"deg)";
+    },120000);
+    for(var i=0;i<60;i++){
+        sLi += '<li style="-webkit-transform:rotate('+i*6+'deg)"></li>';
+    }
+    oUl.innerHTML = sLi;
+</script>
+</html>

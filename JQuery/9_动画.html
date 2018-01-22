@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="div1">
+        111
+    </div>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="animate">animate</button>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $("#hide").on("click",function () {
+        $("#div1").hide(2000,function () {
+            alert(11);
+        });
+    });
+    $("#show").on("click",function () {
+        if ($("#div1").is(":animated")) {
+            $("#div1").stop().show(2000);
+        }
+    });
+
+</script>
+</body>
+</html>

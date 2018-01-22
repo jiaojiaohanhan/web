@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.wrapper{
+    width: 1002px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+/*header开始*/
+#logo{
+    width: 194px;
+    height: 120px;
+    float: left;
+}
+#logo a{
+    margin-top: 29px;
+    float: left;
+}
+.nav{
+    float: left;
+    margin-left: 134px;
+    margin-top: 49px;
+}
+.nav li{
+    float: left;
+    padding: 0 24px 0 25px;
+    position: relative;
+}
+.nav li:after{
+    content: "";
+    height: 14px;
+    width:1px;
+    background: #6b6b6b;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+}
+.nav .no-after:after{
+    display: none;
+}
+.nav a{
+    color: #626262;
+    font-size: 15px;
+}
+.nav .active a{
+    color: #00aeff;
+}
+.sousuo{
+    float: right;
+    width: 131px;
+    height: 30px;
+    margin-top: 45px;
+}
+/*header结束*/
+/*zone1开始*/
+#zone1{
+    height: 460px;
+    width: 100%;
+    background: #31333e;
+    overflow: hidden;
+}
+.lunbo{
+    position: relative;
+    height: 460px;
+    width: 100%;
+}
+.lunbo li{
+    display: none;
+    margin: 0 auto;
+    height: 460px;
+    width: 826px;
+}
+.lunbo img{
+    display: none;
+    height: 460px;
+    width: 826px;
+}
+.lunbo .selected{
+    display: block;
+}
+.lunbo .a1{
+    display: block;
+    width: 40px;
+    height: 65px;
+    background: url("../images/icons.png") -36px ;
+    position: absolute;
+    top: 50%;
+    left: 184px;
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+}
+.lunbo .a2{
+    display: block;
+    width: 40px;
+    height: 65px;
+    background: url("../images/icons.png") -86px ;
+    position: absolute;
+    top: 50%;
+    right: 184px;
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+}
+/*zone1结束*/
+/*zone2开始*/
+#zone2{
+    height: 420px;
+    width: 100%;
+    overflow: hidden;
+    text-align:center;
+}
+#zone2 div{
+    float: left;
+}
+#zone2 div h2,p{
+    margin: 20px 15px;
+    color: #626262;
+}
+#zone2 div a{
+    color: #00aeff;
+}
+#WD{
+     width: 333px;
+     height: 490px;
+     margin-left: 180px;
+ }
+#SM{
+    width: 333px;
+    height: 490px;
+}
+#MA{
+    width: 333px;
+    height: 490px;
+}
+/*zone2结束*/
+/*zone3开始*/
+#zone3{
+    height: 480px;
+    background: #e2e7ed;
+}
+#zone3 h2{
+    color: #626262;
+    margin: 10px 180px 10px 180px;
+}
+#zone3 ul{
+    display: block;
+    width: 1000px;
+    height: 400px;
+    margin: 15px 180px;
+    overflow: hidden;
+}
+#zone3 ul li{
+    float: left;
+    display: block;
+    width: 250px;
+    height: 200px;
+}
+/*zone3结束*/
+/*zone4开始*/
+#zone4{
+    height: 155px;
+    position: relative;
+}
+#zone4 h2{
+    color: #626262;
+    margin: 10px 180px;
+}
+#zone4 ul{
+    position: relative;
+    display: block;
+    height: 100px;
+    margin: 0px 160px 10px 180px;
+    padding: 0px 40px;
+    overflow: hidden;
+}
+#zone4 ul li{
+    float: left;
+    display: block;
+    height: 100px;
+    width:231px;
+    background: #00aeff;
+    position: relative;
+    -webkit-transition:all 1.5s ease;
+}
+#zone4 ul li img{
+    display: block;
+    height: 100px;
+    width:231px;
+    background: transparent;
+}
+#d1{
+    display: block;
+    width: 35px;
+    height: 55px;
+    background: url("../images/little.png") 0px 0px ;
+    position: absolute;
+    top: 50%;
+    left: 180px;
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+    margin-right:5px ;
+    z-index: 2;
+}
+#d2{
+    display: block;
+    width: 35px;
+    height: 55px;
+    background: url("../images/little.png") -30px 0px;
+    position: absolute;
+    top: 50%;
+    right: 160px;
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+}
+/*zone4结束*/
+/*zone5开始*/
+#zone5{
+    background: #31333e;
+    height: 180px;
+    padding-left:30px;
+    position: relative;
+}
+.text li{
+    padding:0 15px;
+}
+.nav2{
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    right: 150px;
+    top:30px;
+}
+.nav2 li{
+    display: block;
+    float: left;
+    margin-right: 15px;
+    padding: 0;
+    width: 35px;
+    height: 35px;
+    background: #FFFFFF;
+}
+/*zone5结束*/

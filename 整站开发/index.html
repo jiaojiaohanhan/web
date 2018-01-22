@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css"/>
+</head>
+<body>
+    <div id="header">
+        <div class="wrapper">
+            <div id="logo">
+                <a href="#">
+                    <img src="images/logo1.png" alt="#"/>
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li><a href="#">About</a></li>
+                <li class="active"><a href="#">Services</a></li>
+                <li><a href="#">Works</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="no-after"><a href="#">Contact Us</a></li>
+            </ul>
+
+            <div class="sousuo">
+                <img src="images/sousuo.jpg" alt="#"/>
+            </div>
+        </div>
+    </div>
+    <div id="zone1">
+        <div class="lunbo">
+            <div class="a1"></div>
+            <div class="a2"></div>
+            <!--<a href="#"><img src="images/lunbo.png" alt=""/></a>-->
+            <ul>
+                <li class="selected"><a href="#"><img  class="selected" src="images/lunbo.png" alt=""/></a></li>
+                <li><a href="#"><img src="images/lunbo2.png" alt=""/></a></li>
+                <li><a href="#"><img src="images/lunbo3.png" alt=""/></a></li>
+                <li><a href="#"><img src="images/lunbo4.png" alt=""/></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="zone2">
+        <div id="WD">
+            <h2>Web Design</h2>
+            <img src="images/1.jpg"/>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo volutpat, felis odio pulvinar enim, non dapibus mauris nulla sed ipsum.
+            </p>
+            <a href="#">READ MORE</a>
+        </div>
+        <div id="SM">
+            <h2>Social Media</h2>
+            <img src="images/2.jpg"/>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo volutpat, felis odio pulvinar enim, non dapibus mauris nulla sed ipsum.
+            </p>
+            <a href="#">READ MORE</a>
+        </div>
+        <div id="MA">
+            <h2>Mobile Apps</h2>
+            <img src="images/3.jpg"/>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo volutpat, felis odio pulvinar enim, non dapibus mauris nulla sed ipsum.
+            </p>
+            <a href="#">READ MORE</a>
+        </div>
+    </div>
+    <div id="zone3">
+        <h2>Our Works</h2>
+        <ul>
+            <li><a href="#"><img src="images/OW1.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW2.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW3.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW4.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW5.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW6.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW7.jpg"/></a></li>
+            <li><a href="#"><img src="images/OW8.jpg"/></a></li>
+        </ul>
+    </div>
+    <div id="zone4">
+        <h2>Clients</h2>
+        <div id="d1"></div>
+        <div id="d2"></div>
+        <ul>
+            <li><a href="#"><img src="images/CL1.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL2.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL3.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL4.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL4.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL3.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL2.jpg"/></a></li>
+            <li><a href="#"><img src="images/CL1.jpg"/></a></li>
+        </ul>
+    </div>
+    <div id="zone5">
+        <ul class="nav text">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">Blog</a></li>
+            <li class="no-after"><a href="#">Contact Us</a></li>
+        </ul>
+        <ul class="nav2">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+<script>
+    var oA1 = document.getElementsByClassName("a1")[0];
+    var oA2 = document.getElementsByClassName("a2")[0];
+    var oD1 = document.getElementById("d1");
+    var oD2 = document.getElementById("d2");
+    var oDiv1 = document.getElementById("zone1");
+    var oDiv2 = document.getElementById("zone4");
+    var aLi = oDiv1.getElementsByTagName("li");
+    var aImg = oDiv1.getElementsByTagName("img");
+    var oUl = oDiv2.getElementsByTagName("ul")[0];
+    var aLi2 = oUl.getElementsByTagName("li");
+    var iNow = 0;
+    oA1.onclick = function () {
+        iNow--;
+        if(iNow < 0){
+            iNow = aImg.length-1;
+        }
+        for (var j=0;j<aLi.length;j++){
+            aLi[j].className = "";
+            aImg[j].className = "";
+        }
+        aLi[iNow].className = "selected";
+        aImg[iNow].className = "selected";
+    }
+    oA2.onclick = function () {
+        iNow++;
+        if (iNow >= aImg.length) {
+            iNow = 0;
+        }
+        for (var j = 0; j < aLi.length; j++) {
+            aLi[j].className = "";
+            aImg[j].className = "";
+        }
+        aLi[iNow].className = "selected";
+        aImg[iNow].className = "selected";
+    }
+    oD1.onclick = function () {
+        for (var i = 0; i < aLi2.length; i++) {
+            aLi2[i].style.top = 0+"px";
+        }
+    }
+    oD2.onclick = function () {
+        for (var i = 0; i < aLi2.length; i++) {
+            aLi2[i].style.top = -100+"px";
+        }
+    }
+</script>
+</body>
+</html>
