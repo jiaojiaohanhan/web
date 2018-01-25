@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let p1 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log('111111');
+                resolve();
+            }, 1000);
+        });
+        let p2 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log('2222');
+                resolve('我是p2');
+            }, 200);
+        });
+        let p3 = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log('3333');
+                reject('我是p3');
+            }, 500);
+        });
+
+        // Promise.all([p1, p2, p3]).then(function(){
+        //     console.log('okokok');
+        // }).catch(function(){
+        //     console.log('sorry');
+        // });
+
+        Promise.race([p1, p2, p3]).then(function(data){
+            console.log(data+'ojbk');
+        }).catch(function(data){
+            console.log(data+'sorry');
+        });
+    </script>
+</body>
+</html>
