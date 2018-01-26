@@ -86,8 +86,6 @@ $w:WIDTH;
 @for $i from 1 through 5{
     .item-#{$i}{
         width:20px*$i;
-        
-
         height:(50px/5);
     }
 }
