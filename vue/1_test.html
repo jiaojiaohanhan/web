@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- {{msg}} -->
+        <div v-text="msg"></div>
+        <div v-html="msg"></div>
+        <input type="text" v-model="a">
+        <!-- <input type="text" v-model="msg"> -->
+        {{a}}
+    </div>
+    <div id="app2">
+        {{msg}}
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"<h1>hello world</h1>",
+                a:"sadasdsadasd"
+            }
+        });
+    </script>
+</body>
+</html>

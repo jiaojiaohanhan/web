@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app ul{
+            list-style: none;
+            text-align: center;
+        }
+        #app li{
+            display: block;
+            width:200px;
+            height: 50px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            line-height: 50px;
+        }
+        .green{
+            background: #00ff00;
+        }
+        .red{
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li :class="[li]" v-on:click="fn" v-for="(val,key) in goods">{{key}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{val}}</li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                // arr1:["aaa 135","bbb 135","ccc 135","ddd 130","eee 130","fff 130"],
+                goods:{
+                    aaa:135,
+                    bbb:135,
+                    ccc:135,
+                    ddd:130,
+                    eee:130,
+                    fff:130
+                },
+                li:"green"
+            },
+            methods:{
+                fn:function(){
+                    if(this.li == "green"){
+                        this.li = "red";
+                    }else{
+                        this.li = "green";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

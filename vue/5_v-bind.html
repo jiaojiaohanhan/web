@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            background:#ff0000;
+        }
+        .bb{
+            color:#00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="imgSrc" alt="this is a img"> -->
+        <!-- <img :src="imgSrc" alt="this is a img"> -->
+        <!-- <h1 :id="id">aaaaaa</h1> -->
+        <div :class="{aa:isAa,bb:isBb}">bbbbbbb</div>
+        <!-- <div :class="[isAa,isBb]">bbbbbbb</div> -->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"../小米官网/img/11.jpg",
+                id:"div1",
+                isAa:true,
+                isBb:true
+            }
+            // data:{
+            //     imgSrc:"../小米官网/img/11.jpg",
+            //     id:"div1",
+            //     isAa:"aa",
+            //     isBb:"bb"
+            // }
+        })
+    </script>
+</body>
+</html>

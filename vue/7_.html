@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        h2{
+            text-align: center;
+            margin: 10px 0;
+        }
+        #app{
+            width: 300px;
+            margin:0 auto;
+        }
+        li{
+            line-height: 50px;
+            height: 50px;
+            background: green;
+            margin-bottom: 3px;
+        }
+        .bg{
+            background: red;
+        }
+        li span{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>services</h2>
+        <ul>
+            <li v-for="obj in arr" @click="fn(obj)" :class="{bg:obj.isBg}">{{obj.name}}<span>{{obj.price}}</span></li>
+        </ul>
+        <hr/>
+        <div>
+            <span>total</span>
+            <sapn>{{sum}}</sapn>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm  = new Vue({
+            el:"#app",
+            data:{
+                arr:[
+                    {name:"aa",price:150,isBg:false},
+                    {name:"bb",price:140,isBg:false},
+                    {name:"cc",price:160,isBg:false},
+                    {name:"dd",price:120,isBg:false},
+                    {name:"ee",price:130,isBg:false},
+                    {name:"ff",price:110,isBg:false}
+                ],
+                sum:0
+            },
+            methods:{
+                fn:function(x){
+                    x.isBg = !x.isBg;
+                    if(x.isBg){
+                        this.sum += x.price;
+                        // this.sum += parseInt(x.price);
+                    }else{
+                        this.sum -= x.price;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
