@@ -3,11 +3,14 @@ const devServer = require("webpack-dev-server");
 const HtmlPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const glob = require("glob");
+const PurifyCSSPlugin = require("purifycss-webpack");
+const webpack = require("webpack");
+const entry = require("./webpack_config/entry_webpack.js");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
     //入口文件的配置项
-    entry:{
-        index:"./src/index.js"
-    },
+    entry:entry,
     //出口文件的配置项
     output:{
         path:path.resolve(__dirname,"dist"),
@@ -19,18 +22,21 @@ module.exports = {
         rules:[
             {
                 test:/\.css$/,
-                use:["style-loader","css-loader"]
-                // use:ExtractTextPlugin.extract({
-                //     fallback:"style-loader",
-                //     use:"css-loader"
-                // })
+                // use:["style-loader","css-loader"]
+                use:ExtractTextPlugin.extract({
+                    fallback:"style-loader",
+                    use:[{
+                        loader:"css-loader",
+                        options:{importLoaders:1}
+                    },"postcss-loader"]
+                })
             },{
-                test:/\.(png|jpg|gif)/,
+                test:/\.(png|jpg|jpeg|gif)/,
                 use:[{
                     loader:"url-loader",
                     options:{
                         limit:500,
-                        outputPath:"images/"
+                        outputPath:"./images/"
                     }
                 }]
             },{
@@ -38,17 +44,36 @@ module.exports = {
                 loader:"html-withimg-loader",
             },{
                 test:/\.scss/,
-                use:[
-                    {
-                        loader:"style-loader"
-                    },
-                    {
+                // use:[
+                //     {
+                //         loader:"style-loader"
+                //     },
+                //     {
+                //         loader:"css-loader"
+                //     },
+                //     {
+                //         loader:"sass-loader"
+                //     }
+                // ]
+                use: ExtractTextPlugin.extract({
+                    use:[{
                         loader:"css-loader"
-                    },
-                    {
+                    },{
                         loader:"sass-loader"
+                    }],
+                    fallback:"style-loader"
+                })
+            },{
+                test:/\.(jsx|js)$/,
+                use:{
+                    loader:"babel-loader",
+                    options:{
+                        presets:[
+                            "env","react"
+                        ]
                     }
-                ]
+                },
+                exclude:/node_modules/
             }
         ]
     },
@@ -59,14 +84,42 @@ module.exports = {
             },
             hash:true,
             template:"./src/index.html",
-            chunks:["index"]
+            chunks:["index","index2"]
         }),
         new ExtractTextPlugin("css/index.css"),
-        new UglifyJsPlugin()
+        // new UglifyJsPlugin(),
+        new PurifyCSSPlugin({
+            paths:glob.sync(path.join(__dirname,"src/*.html"))
+        }),
+        new webpack.BannerPlugin("JH"),
+        new webpack.ProvidePlugin({
+            $:"jquery"
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            //name入口文件中的名字
+            name:["jquery","vue","index","index2"],
+            //把文件打包到哪里，是一个路径
+            filename:"assets/js/[name].js",
+            //最小打包的文件模块数，这里直接写2就好
+            minChunks:2
+        }),
+        new CopyWebpackPlugin([{
+            from:__dirname+"/src/public/",
+            to:"./public"
+        }]),
+        // new CopyPlugin([{
+        //     from:"./src/public/",
+        //     to:"./public"
+        // }])
     ],
     devServer:{
         contentBase:path.resolve(__dirname,"dist"),
         host:"localhost",
         port:"8081"
+    },
+    watchOptions:{
+        poll:1000,
+        // aggregeateTimeout:500,
+        ignored:/node_modules/
     }
 }
