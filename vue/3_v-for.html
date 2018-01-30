@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app">
+        <button @click="fn()">push</button>
+        <button @click="pop()">pop</button>
+        <button @click="change()">change</button>
         <ul>
-            <li v-for="(val,index) in arr">{{val}}----{{index}}</li>
+            <li v-for="val in arr">{{val}}</li>
         </ul>
         <ul>
-            <li v-for="(val,key) in student">{{key}}----{{val}}</li>
+            <li v-for="(val,key) in student">{{key}}:{{val}}</li>
         </ul>
+
     </div>
     <script src="vue.js"></script>
     <script>
         var vm = new Vue({
-            el:"#app",
-            data:{
-                arr:["a","b","c","d","e"],
-                student:{
-                    name:"jh",
-                    age:20,
-                    number:01,
-                    school:"NEFU"
+            el: "#app",
+            data: {
+                arr: ['a', 'b', 'c', 'd'],
+                student: {
+                    name: 'jh',
+                    age: 20,
+                    munber: 01,
+                    school: 'NEFU'
+                }
+            },
+            methods:{
+                fn(){
+                    this.arr.push(Math.random());
+                },
+                pop(){
+                    this.arr.pop();
+                },
+                change(){
+                    //
+                    Vue.set(this.arr,1,666);
+                    // this.arr[1] = '6666';
+                    var a = this.arr.splice(1,1,88);
+                    console.log(a); 
+
+                    //this.arr.length = 2;
+                    this.arr.splice(2);
                 }
             }
-        })
+        });
     </script>
 </body>
 </html>
