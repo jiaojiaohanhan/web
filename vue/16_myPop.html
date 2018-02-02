@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            height: 200px;
+            width: 300px;
+            background: #CCCCCC;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .close{
+            float: right;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="aa">注册</button>
+    <button @click="bb">登录</button>
+    <div class="div1" :style="display.aa" v-if="msg == 1">
+        <button class="close" @click="close">X</button>
+        <demo title="注册">
+
+        </demo>
+        <button>注册</button>
+    </div>
+    <div class="div1" :style="display.bb" v-if="msg == 2">
+        <button class="close" @click="close">X</button>
+        <demo title="登录">
+            <h3> </h3>
+        </demo>
+        <button>登录</button>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script type="text/x-template" id="pop">
+    <div>
+        <h3>{{title}}</h3><br/><hr/>
+        用户名<input type="text"><br/>
+        密码<input type="password">
+        <slot>
+            <br/>
+            确认密码<input type="password">
+        </slot>
+    </div>
+</script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            name:[],
+            display:{
+                aa:"display:none",
+                bb:"display:none"
+            },
+            msg:0
+        },
+        components:{
+            demo:{
+                template:"#pop",
+                props:["title"]
+            }
+        },
+        methods:{
+            aa:function(){
+                vm.display.aa="display:block";
+                vm.msg=1;
+            },
+            bb:function(){
+                vm.display.bb="display:block";
+                vm.msg=2;
+            },
+            close:function(){
+                vm.msg=0;
+            }
+        }
+    })
+</script>
+</body>
+</html>
