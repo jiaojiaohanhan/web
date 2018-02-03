@@ -34,7 +34,7 @@
         </thead>
         <tbody id="product-list">
         <tr v-for="obj in proList">
-            <td><input type="checkbox" v-model="checked" value="check1" @click="fn"></td>
+            <td><input type="checkbox" @click="fn(obj)"></td>
             <td><img :src="obj.productImg" alt=""></td>
             <td>{{obj.productName}}</td>
             <td>
@@ -74,17 +74,16 @@
         el:"#cart",
         data:{
             proList:[],
-            checked:[],
-            total:0
+            total:0,
         },
         beforeCreate:function () {
             axios.get("cart.json").then((res) => {
                 this.proList = res.data.result.productList;
             });
         },
-//        mounted:function(){
-//
-//        },
+        mounted:function(){
+            window.checked = true;
+        },
         methods:{
             sub:function (o) {
                 if(o.productQuentity>0)
@@ -92,6 +91,18 @@
             },
             add:function (o) {
                 o.productQuentity++;
+            },
+            fn:function (o){
+                this.checked = window.checked;
+                if(this.checked==true) {
+                    this.total += o.productPrice * o.productQuentity;
+//                    window.checked =!window.checked ;
+                }else if(this.total>0){
+                    this.total -= o.productPrice * o.productQuentity;
+                    window.checked =!window.checked ;
+                }
+//                this.checked = !this.checked;
+//                window.checked =!window.checked ;
             }
         }
     })

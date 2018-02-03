@@ -16,5 +16,8 @@
   },
   "homepage": "https://github.com/jiaojiaohanhan/web#readme",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "vuex": "^3.0.1"
+  }
 }

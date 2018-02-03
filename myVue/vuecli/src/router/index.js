@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Test from '@/components/Test'
 import subtest1 from '@/components/subtest1'
 import subtest2 from '@/components/subtest2'
+import count from '@/components/count'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
           component:subtest2
         }
       ]
+    },
+    {
+      path: '/count',
+      name: 'count',
+      component: count
     }
   ]
 })
