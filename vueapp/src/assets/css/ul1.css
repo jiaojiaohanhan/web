@@ -1,0 +1,11 @@
+.ul1{
+    list-style: none;
+    overflow: hidden;
+}
+.ul1 li{
+    display: block;
+    font-size: 1rem;
+    height: 100%;
+    width: 50%;
+    float: left;
+}
