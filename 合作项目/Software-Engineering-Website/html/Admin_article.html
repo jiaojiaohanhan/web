@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章管理</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/Admin_article.css">
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script src="../js/index.js"></script>
+</head>
+<body>
+<div class="container">
+    <!--banner开始-->
+    <div class="banner">
+        <img src="../img/banner.jpg" alt="东北林业大学信息与计算机工程学院软件工程专业">
+    </div>
+    <!--导航头部开始-->
+    <div class="header">
+        <div class="h-nav">
+            <div class="h-map">
+                <a href="../index.html" id="frist-nav">首页</a>
+                <span>|</span>
+                <a href="Professional_news.html">专业新闻</a>
+                <span>|</span>
+                <span id="prof">专业概况
+                      <div id="prof-content">
+                          <ul class="prof-ul">
+                              <li class="id_li"><a href="../html/Professional_introduction.html">专业简介</a></li>
+                              <li class="id_li"><a href="../html/Professional_direction.html">方向简介</a></li>
+                              <li class="id_li"><a href="../html/content.html">招生简章</a></li>
+                          </ul>
+                      </div>
+                  </span>
+                <span>|</span>
+                <span span id="sky">学生天地
+                      <div id="sky-content">
+                          <ul class="sky-ul">
+                              <li class="id_li"><a href="Work_direction.html">就业指南</a></li>
+                              <li class="id_li"><a href="Professional_news.html">大赛报名</a></li>
+                              <li class="id_li"><a href="Professional_news.html">学生活动</a></li>
+                          </ul>
+                      </div>
+                  </span>
+                <span>|</span>
+                <span id="lab">实验室
+                      <div id="lab-content">
+                          <ul class="lab-ul">
+                              <li class="id_li"><a href="../html/content.html">923 创新实验室</a></li>
+                              <li class="id_li"><a href="../html/content.html">925 移动开发实验室</a></li>
+                              <li class="id_li"><a href="../html/content.html">955 王波老师研究所</a></li>
+                          </ul>
+                      </div>
+                  </span>
+                <span>|</span>
+                <span id="teacher">师资队伍
+                      <div id="tec-content">
+                      <ul class="tec-ul">
+                          <li class="id_li"><a href="Teacher_list.html">教授</a></li>
+                          <li class="id_li"><a href="Teacher_list.html">副教授</a></li>
+                          <li class="id_li"><a href="Teacher_list.html">讲师</a></li>
+                      </ul>
+              </div></span>
+                <span>|</span>
+                <span id="result">教学成果展示
+                      <div id="res-content">
+                      <ul class="res-ul">
+                          <li class="id_li"><a href="Professional_news.html">学术报告</a></li>
+                          <li class="id_li"><a href="Professional_news.html">竞赛获奖名单</a></li>
+                          <li class="id_li"><a href="Professional_news.html">科研实例展示</a></li>
+                      </ul>
+                     </div>
+                  </span>
+                <span>|</span>
+                <a href="Question_tell.html">问题反馈</a>
+                <span>|</span>
+            </div>
+            <div class="log-menu">
+                <a href="../html/login.html">登录</a>
+                <span>|</span>
+                <a href="#" id="msg">消息通知
+                    <i class="iconfont icon-xiaoxi"></i>
+                    <div id="msg-content">
+                        <ul class="msg-ul">
+                            <li class="msg-li">考试通知:2017年12月6号...</li>
+                            <li class="msg-li">作业提醒:截至2017年12月1号...</li>
+                            <li class="msg-li">比赛通知:报名截止日期...</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+            <div class="log-menu selected">
+                  <span id="touxiang"><i class="iconfont icon-dengluhoutouxiang" style="font-size: 36px;box-shadow: 0 0 5px #fff;border-radius: 25px"></i>
+                      <i class="iconfont icon-icon8"></i>
+                      <div id="tx_fix">
+                         <ul class="res-ul">
+                             <li class="id_li"><a href="Admin_article.html">文章管理</a></li>
+                             <li class="id_li"><a href="rofessional_news.html">修改密码</a></li>
+                             <li class="id_li"><a href="Professional_news.html">完善/修改个人资料</a></li>
+                         </ul>
+                     </div>
+                  </span>
+                <span>|</span>
+                <a href="#" id="msg">消息通知
+                    <i class="iconfont icon-xiaoxi"></i>
+                    <div id="msg-content">
+                        <ul class="msg-ul">
+                            <li class="msg-li">考试通知:2017年12月6号...</li>
+                            <li class="msg-li">作业提醒:截至2017年12月1号...</li>
+                            <li class="msg-li">比赛通知:报名截止日期...</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="h-span">
+            <div id="time"></div>
+        </div>
+    </div>
+    <!--导航头部结束-->
+    <!--主体开始-->
+    <div id="content">
+        <div class="guide">
+            <div id="side" class="selected">
+                <ul class="side-left">
+                    <li id="search">
+                        <input type="text" id="inputSearch" class="" value="请输入关键字" />
+                        <button type="submit" id="button-search" >
+                            <i class="iconfont icon-sousuo"></i>
+                        </button>
+                    </li>
+                    <li id="add">增添文章 <i class="iconfont icon-iconjia" id="btn-a"></i></li>
+                    <ul class="add_content">
+                    <li id="add-news" class="">添加专业新闻</li>
+                    <li id="add-study" class="">添加学术报告</li>
+                    <li id="add-match" class="">添加比赛通知</li>
+                    <li id="add-result" class="">添加获奖通知</li>
+                </ul>
+                </ul>
+            </div>
+            <div id="guide-content">
+                <div id="search_result" class="">
+                    <h2 class="title">文章列表</h2>
+                    <table id="guide-result">
+                        <tr id="first">
+                            <td class="td1"></td>
+                            <td class="td2">文章标题</td>
+                            <td class="td3">发布日期</td>
+                            <td class="td4">文章编辑</td>
+                            <td class="td4">文章删除</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>我爱你，中国</td>
+                        <td>2017.05.06</td>
+                        <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                        <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                    </tr>
+                        <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>我爱你，中国</td>
+                        <td>2017.05.06</td>
+                        <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                        <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                    </tr>
+                        <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>我爱你，中国</td>
+                        <td>2017.05.06</td>
+                        <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                        <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                    </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>我爱你，中国</td>
+                            <td>2017.05.06</td>
+                            <td class="td4"><i class="iconfont icon-bianji"></i></td>
+                            <td class="td4"><i class="iconfont icon-shanchu"></i></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="add-news-content" class="zz div0">
+                    <form action="">
+                        <fieldset>
+                            <legend>专业新闻</legend>
+                            <table>
+                                <tr>
+                                    <th><label>文章标题：</label></th>
+                                    <td>
+                                        <input type="text" id="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label>文章内容</label></th>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                                <tr>
+                                    <th><label>描述性照片：</label></th>
+                                    <td><input type="file" datatype=".jpg"></td>
+                                </tr>
+                                <tr id="btn">
+                                    <td><button type="submit" id="Qsubmit">提交</button></td>
+                                    <td><button type="reset">重置</button></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="add-study-content" class="zz div1">
+                    <form action="">
+                        <fieldset>
+                            <legend>学术报告</legend>
+                            <table>
+                                <tr>
+                                    <th><label>文章标题：</label></th>
+                                    <td>
+                                        <input type="text" id="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label>文章内容</label></th>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                                <tr>
+                                    <th><label>描述性照片：</label></th>
+                                    <td><input type="file" datatype=".jpg"></td>
+                                </tr>
+                                <tr id="btn">
+                                    <td><button type="submit" id="Qsubmit">提交</button></td>
+                                    <td><button type="reset">重置</button></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="add-match-content" class="zz div2">
+                    <form action="">
+                        <fieldset>
+                            <legend>比赛通知</legend>
+                            <table>
+                                <tr>
+                                    <th><label>文章标题：</label></th>
+                                    <td>
+                                        <input type="text" id="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label>文章内容</label></th>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                                <tr>
+                                    <th><label>描述性照片：</label></th>
+                                    <td><input type="file" datatype=".jpg"></td>
+                                </tr>
+                                <tr id="btn">
+                                    <td><button type="submit" id="Qsubmit">提交</button></td>
+                                    <td><button type="reset">重置</button></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="add-result-content" class="zz div3">
+                    <form action="">
+                        <fieldset>
+                            <legend>获奖通知</legend>
+                            <table>
+                                <tr>
+                                    <th><label>文章标题：</label></th>
+                                    <td>
+                                        <input type="text" id="input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label>文章内容</label></th>
+                                    <td><textarea></textarea></td>
+                                </tr>
+                                <tr>
+                                    <th><label>描述性照片：</label></th>
+                                    <td><input type="file" datatype=".jpg"></td>
+                                </tr>
+                                <tr id="btn">
+                                    <td><button type="submit" id="Qsubmit">提交</button></td>
+                                    <td><button type="reset">重置</button></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="alter" class="zz div4 selected">
+                    <form action="">
+                        <fieldset>
+                            <legend>文章修改</legend>
+                            <table>
+                                <tr>
+                                    <th><label>文章标题：</label></th>
+                                    <td>
+                                        <input type="text" id="title" value="我爱你，中国" class="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label>文章内容</label></th>
+                                    <td style="position: relative">
+                                        <div class="blur">
+                                            11月29日下午，李顺龙副校长为信息与计算机工程学院全体党员上了一堂生动的主题党课,党课由计算机科学与技术系党支部书记李林辉主持。
+                                            李顺龙副校长以《新时代生态文明观与低碳发展——建设生态文明，共创美丽中国》为题，解读了十九大报告内容，通过对十九大报告中关于“生态文明”“美丽”“绿色”的阐述，明确了建设生态文明，共创美丽中国的主题。
+                                            李顺龙副校长认真践行新时代生态文明观、人类社会面临的最艰难课题、实现可持续发展的必经之路、中国已启动低碳发展新模式、注重林业对低碳发展的贡献五个方面，阐述了新时代生态文明观的必要性、全球气候变化严重性、低碳发展对于解决气候变化问题的重要性、我国对低碳发展新模式的探索和努力以及林业在低碳发展的重要作用。
+                                            李顺龙副校长强调，要建设美丽中国，发展低碳经济是一个重要举措，应建立健全低碳循环发展的经济体系，倡导广大党员采取简约适度、绿色低碳的生活方式，反对奢侈浪费和不合理消费。李顺龙副校长指出，生态文明建设功在当代、利在千秋，我们要牢固树立社会主义生态文明观，推动形成人与自然和谐发展的现代化建设新格局，要结合学校特色为保护生态环境做出贡献.
+                                            李顺龙副校长用通俗易懂的语言、引人入胜的案例，深入浅出地讲述了“新时
+                                        </div>
+                                        <textarea>
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><label>描述性照片：</label></th>
+                                    <td><input type="file" datatype=".jpg"></td>
+                                </tr>
+                                <tr id="btn">
+                                    <td><button type="submit" id="Qsubmit">提交</button></td>
+                                    <td><button type="reset">重置</button></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--尾部开始-->
+    <div class="footer">
+        <div class="ver">版权所有 Copyright © 东北林业大学EproL所有&nbsp;&nbsp;&nbsp;地址:中国黑龙江省哈尔滨市香坊区</div>
+        <div class="ver">联系电话:8888888888888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮政编码:101000</div>
+    </div>
+    <!--尾部结束-->
+</div>
+</body>
+</html>
