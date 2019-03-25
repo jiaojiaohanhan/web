@@ -672,6 +672,8 @@
 .con-carousel li{
     float: left;
     width: 296px;
+}
+.con-carousel-no-active{
     display: none;
 }
 .con-carousel-active{
