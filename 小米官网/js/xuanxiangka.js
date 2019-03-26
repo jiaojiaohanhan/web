@@ -10,12 +10,12 @@ var aTaLi = oTab.getElementsByTagName("li");
 var oBd = document.getElementById("box-bd-right");
 var aBd = oBd.getElementsByTagName("ul");
 oIco1.onmouseover = function () {
-    oIco2.className = "iconfont icon-back";
+    oIco2.className = "iconfont icon-go";
     oIco1.className = "iconfont icon-back icon-active";
 }
 oIco2.onmouseover = function () {
     oIco1.className = "iconfont icon-back";
-    oIco2.className = "iconfont icon-back icon-active";
+    oIco2.className = "iconfont icon-go icon-active";
 }
 oIco1.onclick = function () {
     oUl1.style.display = "block";
