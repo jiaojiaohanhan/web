@@ -70,10 +70,19 @@
     var aLi = document.getElementsByTagName("li");
     var oContent = document.getElementById("content");
     var aDiv = oContent.getElementsByTagName("div");
+    var _index;
     for (var i=0;i<aLi.length;i++){
         aLi[i].index = i;//aLi[0].index = 0......
         aLi[i].onclick = function select(){
+//            _index = this.index;
             for(var j=0;j<aLi.length;j++){
+//                if(j!=_index){
+//                    aLi[j].className = "";//所有li的selected去掉
+//                    aDiv[j].className = "";//所有div的active去掉
+//                } else{
+//                    aLi[j].className = "selected";//所有li的selected去掉
+//                    aDiv[j].className = "active";//所有div的active去掉
+//                }
                 aLi[j].className = "";//所有li的selected去掉
                 aDiv[j].className = "";//所有div的active去掉
             }
